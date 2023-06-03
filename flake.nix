@@ -18,13 +18,22 @@
           mkShell {
             buildInputs = [
               cargo
+              clippy
               rustc
               git
+              rustfmt
+              sqlite
+              diesel-cli
             ];
           };
 
         packages = rec {
           anyrun-ha-assist = pkgs.callPackage ./nix {};
+          default = anyrun-ha-assist;
+        };
+
+        anyrunPlugins = rec {
+          anyrun-ha-assist = "${packages.default}/lib/libanyrun_ha_assist.so";
           default = anyrun-ha-assist;
         };
 

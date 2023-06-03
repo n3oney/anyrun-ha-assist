@@ -1,0 +1,6 @@
+-- Your SQL goes here
+
+CREATE TABLE history (
+    id INTEGER PRIMARY KEY AUTOINCREMENT NOT NULL,
+    query TEXT NOT NULL
+)
